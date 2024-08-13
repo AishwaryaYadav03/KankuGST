@@ -1,0 +1,78 @@
+
+body {
+     font-family: Arial, sans-serif;
+     background-color: #f8f9fa;
+     /* display: flex; */
+     justify-content: left;
+     align-items: center;
+     height: 100vh;
+     margin: 0;
+     padding: 20px;
+ }
+ .title {
+     font-size: 2rem;
+     margin-bottom: 20px;
+     text-align: center;
+     color: #007bff; /* Adjust title color as needed */
+ }
+ .card {
+     background: #ffffff;
+     border-radius: 8px;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     padding: 20px;
+     text-align: center;
+     width: 400px;
+ }
+ .card-icon {
+    font-size: 40px; /* Size of the icon */
+    color: #ffffff; /* Icon color */
+    background: #343a40; /* Dark background color */
+    border-radius: 50%; /* Makes the background a perfect circle */
+    width: 80px; /* Width of the circle */
+    height: 80px; /* Height of the circle, same as width for perfect circle */
+    display: flex; /* Center icon inside the circle */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-bottom: 20px;
+}
+
+
+ .card-title {
+     font-size: 1.5rem;
+     /* margin-top: 5px; */
+     text-align: left;
+ }
+ 
+
+ /* Responsive Styles */
+ @media (max-width: 1024px) {
+    .card {
+        flex: 1 1 calc(50% - 40px); /* Two cards per row with gap */
+        max-width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(100% - 40px); /* One card per row */
+        max-width: calc(100% - 40px);
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .card-icon {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-icon {
+        font-size: 2rem;
+    }
+}

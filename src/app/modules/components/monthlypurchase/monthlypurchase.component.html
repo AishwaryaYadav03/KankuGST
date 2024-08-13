@@ -1,0 +1,158 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">MONTHLY/YEARLY PURCHASE</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a  routerLink="/admin-dashboard">Home</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header bg-dark">
+          <p class="text-white p-2" style="font-size: 18px;">monthly/Yearly Purchase Records</p>
+        </div>
+        <div class="card-body">
+          <div class="form-container">
+            <div class="row g-3">
+              <div class="col-md-4 p-4">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Start Date</mat-label>
+                  <input matInput [matDatepicker]="startPicker" formControlName="startDate" placeholder="MM/DD/YYYY">
+                  <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #startPicker></mat-datepicker>
+                  <mat-hint>Select Start Date</mat-hint>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 p-4">
+                <div class="row">
+                  <div class="col-md-8">
+                    
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>End Date</mat-label>
+                      <input matInput [matDatepicker]="endPicker" formControlName="endDate" placeholder="MM/DD/YYYY">
+                      <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+                      <mat-datepicker #endPicker></mat-datepicker>
+                      <mat-hint>Select End Date</mat-hint>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4">
+                    <button (click)="onSubmit()" class="btn btn-outline-secondary" style="margin-top: 6px; width: 150px;" type="button">Check</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<br><br><br><br>
+
+<div class="row">
+  <div class="col">
+    <mat-form-field appearance="outline" class="example-full-width">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search product by details" #input>
+    </mat-form-field>
+  </div>
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-dark p-3 example-full-width" (click)="downloadPDF()">Download PDF</button>
+      </div>
+      <div class="col">
+        <button class="btn btn-dark p-3 example-full-width" (click)="downloadCSV()">Download CSV</button>
+      </div>
+      <div class="col">
+        <button class="btn btn-dark p-3 example-full-width" (click)="printTable()">Print</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="p-3" *ngIf="!isDataLoaded">
+  <h2 style="text-align: center;" class="text-danger">select date range for monthly records</h2>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="isDataLoaded">
+
+
+
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element" class="bg-secondary"> {{element.position}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+  <ng-container matColumnDef="purchaseDate">
+    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.purchaseDate}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+  <ng-container matColumnDef="supplierName">
+    <th mat-header-cell *matHeaderCellDef> PartyName </th>
+    <td mat-cell *matCellDef="let element"> {{element.supplierName}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+  <ng-container matColumnDef="supplierGstNumber">
+    <th mat-header-cell *matHeaderCellDef> GSTNO </th>
+    <td mat-cell *matCellDef="let element"> {{element.supplierGstNumber}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+  <ng-container matColumnDef="billNumber">
+    <th mat-header-cell *matHeaderCellDef> BillNO </th>
+    <td mat-cell *matCellDef="let element"> {{element.billNumber}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+  <ng-container matColumnDef="goodsAmount">
+    <th mat-header-cell *matHeaderCellDef> GoodsAMT </th>
+    <td mat-cell *matCellDef="let element"> {{element.goodsAmount}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+  <ng-container matColumnDef="igst">
+    <th mat-header-cell *matHeaderCellDef> IGST </th>
+    <td mat-cell *matCellDef="let element"> {{element.igst}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+  <ng-container matColumnDef="cgst">
+    <th mat-header-cell *matHeaderCellDef> CGST </th>
+    <td mat-cell *matCellDef="let element"> {{element.cgst}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+  <ng-container matColumnDef="sgst">
+    <th mat-header-cell *matHeaderCellDef> SGST </th>
+    <td mat-cell *matCellDef="let element"> {{element.sgst}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+  <ng-container matColumnDef="TCS">
+    <th mat-header-cell *matHeaderCellDef> TCS </th>
+    <td mat-cell *matCellDef="let element"> {{element.TCS}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+  <ng-container matColumnDef="finalAmount">
+    <th mat-header-cell *matHeaderCellDef> BillAmt </th>
+    <td mat-cell *matCellDef="let element"> {{element.finalAmount}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+  <ng-container matColumnDef="roundUpAmount">
+    <th mat-header-cell *matHeaderCellDef> roundUpAmount </th>
+    <td mat-cell *matCellDef="let element"> {{element.roundUpAmount}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns" class="bg-secondary"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row table-bordered"></tr>
+  <tr class="bg-secondary" mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+</table>

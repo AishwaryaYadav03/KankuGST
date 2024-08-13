@@ -1,0 +1,96 @@
+/* styles.css or component-specific CSS */
+/* .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+  } */
+  
+  @media (min-width: 576px) {
+    .form-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  .example-full-width{
+    width: 100%;
+  }
+  
+
+  
+
+  
+  
+  .form-item {
+    flex: 1 1 100%;
+    margin: 10px 0;
+  }
+  
+  @media (min-width: 576px) {
+    .form-item {
+      flex: 1 1 calc(50% - 20px);
+      margin: 10px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .form-item {
+      flex: 1 1 calc(33.333% - 20px);
+      margin: 10px;
+    }
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  @media (min-width: 576px) {
+    .button-container {
+      flex-direction: row;
+    }
+  }
+  ::ng-deep .custom-select-panel {
+    transform-origin: top !important;
+  }
+ /* my-table.component.css */
+.table-container {
+  margin: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mat-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.mat-header-cell {
+  background-color: #3f51b5; /* Primary color */
+  color: white;
+  font-weight: bold;
+}
+
+.mat-cell {
+  background-color: #f9f9f9; /* Light gray background */
+}
+
+.mat-row:nth-child(even) .mat-cell {
+  background-color: #f1f1f1; /* Alternating row colors */
+}
+
+.mat-header-cell, .mat-cell {
+  padding: 16px;
+  text-align: left;
+}
+
+.mat-sort-header {
+  cursor: pointer;
+}
+
+.mat-paginator {
+  padding: 16px;
+}

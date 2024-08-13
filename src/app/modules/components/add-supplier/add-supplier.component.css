@@ -1,0 +1,48 @@
+/* styles.css or component-specific CSS */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  @media (min-width: 576px) {
+    .form-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+  
+  .form-item {
+    flex: 1 1 100%;
+    margin: 10px 0;
+  }
+  
+  @media (min-width: 576px) {
+    .form-item {
+      flex: 1 1 calc(50% - 20px);
+      margin: 10px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .form-item {
+      flex: 1 1 calc(33.333% - 20px);
+      margin: 10px;
+    }
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  @media (min-width: 576px) {
+    .button-container {
+      flex-direction: row;
+    }
+  }
+  ::ng-deep .custom-select-panel {
+    transform-origin: top !important;
+  }
+  

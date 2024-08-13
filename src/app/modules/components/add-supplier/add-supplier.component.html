@@ -1,0 +1,76 @@
+<div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">ADD SUPPLIER</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a  routerLink="/admin-dashboard">Home</a></li>
+            <!-- <li class="breadcrumb-item active">Dashboard v1</li> -->
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <form [formGroup]="form" (ngSubmit)="formSubmit()">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header bg-dark">
+            <p class="text-white p-2" style="font-size: 18px;">Add New Supplier</p>
+          </div>
+          <div class="card-body">
+            <div class="form-container">
+             
+             
+              <div class="form-item">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Supplier Name</mat-label>
+                  <input formControlName="supplierName" matInput placeholder="Supplier Name">
+                  <mat-icon matSuffix>person</mat-icon>
+                  <mat-hint>Enter Supplier name</mat-hint>
+                </mat-form-field>
+              </div>
+              <div class="form-item">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Supplier Contact</mat-label>
+                  <input formControlName="supplierContact" matInput placeholder="Supplier Contact">
+                  <mat-icon matSuffix>phone</mat-icon>
+                  <mat-hint>Enter Supplier Contact</mat-hint>
+                </mat-form-field>
+              </div>
+            
+              <div class="form-item">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Supplier Address</mat-label>
+                  <textarea formControlName="supplierAddress" matInput placeholder="Supplier Address"></textarea>
+                  <mat-icon matSuffix>location_on</mat-icon>
+                  <mat-hint>Enter Supplier Address</mat-hint>
+                </mat-form-field>
+              </div>
+              <div class="form-item">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Supplier GST No</mat-label>
+                  <input formControlName="supplierGSTNo" matInput placeholder="Supplier GST No">
+                  <mat-icon matSuffix>currency_rupee</mat-icon>
+                  <mat-hint>Enter Supplier GST No</mat-hint>
+                </mat-form-field>
+              </div>
+            
+            </div>
+            <div class="row button-container">
+              <div class="col">
+                <button [disabled]="" class="p-4" style="width: 100%;" mat-stroked-button type="submit">ADD SUPPLIER</button>
+              </div>
+              <div class="col">
+                <a class="p-4"  (click)="resetForm()" style="width: 100%;" mat-stroked-button color="warn">RESET</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  

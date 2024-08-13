@@ -1,0 +1,125 @@
+
+
+body {
+overflow-x: hidden;
+font-family: Arial, sans-serif;
+}
+
+.invoice {
+width: 60%;
+margin: auto;
+border: 1px solid black;
+padding: 10px;
+}
+
+.header, .footer {
+text-align: center;
+}
+
+.header {
+padding: 5px 0;
+border-bottom: 1px solid black;
+}
+
+.header h1 {
+margin: 0;
+font-size: 18px;
+font-weight: bold;
+}
+
+.header p {
+margin: 0;
+font-size: 10px;
+font-style: italic;
+}
+
+.company-details, .buyer-details {
+padding: 6px;
+border: 1px solid black;
+margin-top: 5px;
+font-size: 10px;
+}
+
+.details-table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 5px;
+}
+
+.details-table th, .details-table td {
+border: 1px solid black;
+padding: 4px;
+font-size: 10px;
+}
+
+.details-table th {
+background-color: #f2f2f2;
+}
+
+.amount-in-words {
+padding: 6px;
+border: 1px solid black;
+font-size: 10px;
+margin-top: 5px;
+}
+
+.bank-details, .declaration {
+padding: 6px;
+border: 1px solid black;
+font-size: 10px;
+margin-top: 5px;
+}
+
+.totals-table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 5px;
+}
+
+.totals-table th, .totals-table td {
+border: 1px solid black;
+padding: 4px;
+font-size: 10px;
+text-align: right;
+}
+
+.totals-table th {
+background-color: #f2f2f2;
+}
+
+.text-right {
+text-align: right;
+}
+
+.text-center {
+text-align: center;
+}
+
+@media print {
+body, .invoice {
+ margin: 0;
+ padding: 0;
+ width: 100%;
+ border: none;
+}
+.header h1 {
+ font-size: 16px;
+}
+.details-table th, .details-table td, .totals-table th, .totals-table td {
+ font-size: 9px;
+ padding: 3px;
+}
+}
+
+@media screen and (max-width: 768px) {
+.invoice {
+ width: 85%;
+}
+}
+
+@media screen and (max-width: 480px) {
+.invoice {
+ width: 95%;
+}
+}
+

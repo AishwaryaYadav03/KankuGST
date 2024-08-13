@@ -1,0 +1,69 @@
+<div class="register-page">
+    <div class="register-box">
+        <div class="register-logo">
+            <a href="../../index2.html"><b>Registration </b>Form</a>
+        </div>
+
+        <div class="card">
+            <div class="card-body register-card-body">
+                <p class="login-box-msg">Register a new membership</p>
+
+                <form [formGroup]="form" (ngSubmit)="register()">
+                    <div class="col p-0">
+                        <mat-form-field appearance="outline" class="w-100 p-0">
+                            <mat-label>Full Name</mat-label>
+                            <input formControlName="fullName" matInput placeholder="Full Name">
+                            <mat-icon matSuffix>person</mat-icon>
+                            @if(f['fullName'].errors){
+                            <mat-error>Full name is required!</mat-error>
+                            }
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Email</mat-label>
+                            <input formControlName="email" matInput placeholder="Email">
+                            <mat-icon matSuffix>email</mat-icon>
+                            @if(f['email'].errors){
+                            <mat-error>Email id is required!</mat-error>
+                            }
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Contact</mat-label>
+                            <input formControlName="userContact" matInput placeholder="Contact">
+                            <mat-icon matSuffix>phone</mat-icon>
+                            @if(f['userContact'].errors){
+                            <mat-error>Contact number is required!</mat-error>
+                            }
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Password</mat-label>
+                            <input formControlName="password" matInput placeholder="Password">
+                            <mat-icon matSuffix>phone</mat-icon>
+                            @if(f['password'].errors){
+                            <mat-error>Password is required!</mat-error>
+                            }
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Confirm Password</mat-label>
+                            <input formControlName="confirmPassword" matInput placeholder="Confirm Password">
+                            <mat-icon matSuffix>phone</mat-icon>
+                            @if(f['confirmPassword'].errors){
+                            <mat-error>Confirm password is not matched!</mat-error>
+                            }
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 mb-2">
+                            <button [disabled]="form.invalid" type="submit"
+                                class="btn btn-primary btn-block">Register</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+                <a routerLink="/" class="text-center">I already have a membership</a>
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+    </div>
+</div>

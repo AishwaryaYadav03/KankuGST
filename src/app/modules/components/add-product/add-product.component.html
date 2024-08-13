@@ -1,0 +1,89 @@
+
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">ADD PRODUCT</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a  routerLink="/admin-dashboard">Home</a></li>
+          <!-- <li class="breadcrumb-item active">Dashboard v1</li> -->
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="formSubmit()">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header bg-dark">
+          <p class="text-white p-2" style="font-size: 18px;">Add new product to product list</p>
+        </div>
+        <div class="card-body">
+          <div class="form-container">
+            <div class="form-item">
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Product ID</mat-label>
+                <input disabled matInput [value]="products.productId" placeholder="Product ID" readonly>
+                <mat-icon matSuffix>lock</mat-icon>
+                <mat-hint>Product Id</mat-hint>
+              </mat-form-field>
+            </div>
+            <div class="form-item">
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Product Name</mat-label>
+                <input formControlName="productName" matInput placeholder="Product Name">
+                <mat-icon matSuffix>store</mat-icon>
+                <mat-hint>Enter product name</mat-hint>
+              </mat-form-field>
+            </div>
+            <div class="form-item">
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Product Category</mat-label>
+                <input formControlName="productCategory" matInput placeholder="Product Category">
+                <mat-icon matSuffix>badge</mat-icon>
+                <mat-hint>Enter product category</mat-hint>
+              </mat-form-field>
+            </div>
+            <div class="form-item">
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Product HSNNO</mat-label>
+                <input formControlName="productHSNNo" matInput placeholder="Product HSNNO">
+                <mat-icon matSuffix>numbers</mat-icon>
+                <mat-hint>Enter product hsnNo</mat-hint>
+              </mat-form-field>
+            </div>
+            <div class="form-item">
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Combine Product Price</mat-label>
+                <input formControlName="productPrice" matInput placeholder="Product Cost">
+                <mat-icon matSuffix>currency_rupee</mat-icon>
+                <mat-hint>Enter product cost</mat-hint>
+              </mat-form-field>
+            </div>
+            <div class="form-item">
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Unit Type</mat-label>
+                <input formControlName="productUnitType" matInput placeholder="unit Type">
+                <mat-icon matSuffix>currency_rupee</mat-icon>
+                <mat-hint>Enter product cost</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row button-container">
+            <div class="col">
+              <button [disabled]="form.invalid" class="p-4" style="width: 100%;" mat-stroked-button type="submit">ADD PRODUCT</button>
+            </div>
+            <div class="col">
+              <a (click)="resetForm()" class="p-4" style="width: 100%;" mat-stroked-button color="warn">RESET</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
